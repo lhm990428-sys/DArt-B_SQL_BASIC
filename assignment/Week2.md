@@ -118,12 +118,13 @@ SQL_BASIC 정규 과제는 매주 정해진 분량의 `초보자를 위한 BigQu
 풀이 과정:
 
 ```
-- 테이블에서 확인한 컬럼:
-- SELECT와 FROM을 작성한 방식:
-- 새로 배운 점:
+- 테이블에서 확인한 컬럼: ANIMAL_ID, ANIMAL_TYPE, DATETIME, INTAKE_CONDITION, NAME, SEX_UPON_INTAKE
+- SELECT와 FROM을 작성한 방식: SELECT * FROM ANIMAL_INS
+- 새로 배운 점 : ANIMAL_INS 이란 TABLE 에서 모든 정보를 추출하는 방법
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/1d0c886c-a098-4112-b969-b7441e043c1e" />
+
 
 ## 🧩 문제 2
 
@@ -132,22 +133,23 @@ SQL_BASIC 정규 과제는 매주 정해진 분량의 `초보자를 위한 BigQu
 풀이 과정:
 
 ```
-- 문제에서 요구한 조건:
-- WHERE 절로 옮긴 방식:
-- 정렬 기준이 있다면 사용한 기준:
-- 새로 배운 점:
+- 문제에서 요구한 조건: 동물 보호소에 들어온 동물 중 아픈 동물의 아이디와 이름을 조회하는 SQL 문법을 요구함.
+- WHERE 절로 옮긴 방식: INTAKE_CONDITION = 'Sick' 조건절을 사용하여 상태가 'Sick'인 행만 필터링함.
+- 정렬 기준이 있다면 사용한 기준: 정렬 기준을 따로 두고 사용하지 않았음.
+- 새로 배운 점: WHERE 절을 활용한 특정 문자열 조건 필터링 및 SELECT 절을 통한 필요한 컬럼 추출 방법
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="1917" height="1196" alt="image" src="https://github.com/user-attachments/assets/1832b11a-1500-4890-a204-0ff37e8c50de" />
+
 
 ---
 
 # 4️⃣ 이번 주 회고
 
 ```
-1. SELECT, FROM, WHERE 중 가장 헷갈린 개념:
-2. 문제를 풀 때 가장 자주 확인하게 된 부분:
-3. 다음 주 문제 풀이에서 의식하고 싶은 습관:
+1. SELECT, FROM, WHERE 중 가장 헷갈린 개념: SQL 문법의 적용 순서가 헷갈렸음.
+2. 문제를 풀 때 가장 자주 확인하게 된 부분: 여러 컬럼을 추출할 때 ','를 기재하였는지, 그리고 WHERE 절에서 문자열 추출할 때 ""를 잘 기재하였는지
+3. 다음 주 문제 풀이에서 의식하고 싶은 습관: SQL문법의 적용 순서에 따라 자연스럽게 쿼리문 작성하기
 ```
 
 수고하셨습니다!

@@ -65,17 +65,24 @@ SQL_BASIC 정규 과제는 매주 정해진 분량의 `초보자를 위한 BigQu
 ## 01.
 
 ```
-개념 이름: 
-개념 설명:
+개념 이름: GROUP BY
+개념 설명: 특정 컬럼을 기준으로 데이터를 그룹화하여 그룹별 집계값을 구할 때 사용한다.
 예시 쿼리:
+SELECT type1, COUNT(*) AS cnt
+FROM `basic.pokemon`
+GROUP BY type1;
 ```
 
 ## 02.
 
 ```
-개념 이름:
-개념 설명:
+개념 이름: HAVING
+개념 설명: GROUP BY로 집계한 결과에 조건을 적용할 때 사용한다. WHERE가 집계 전 조건이라면 HAVING은 집계 후 조건이다.
 예시 쿼리:
+SELECT type1, COUNT(*) AS cnt
+FROM `basic.pokemon`
+GROUP BY type1
+HAVING COUNT(*) >= 10;
 ```
 
 

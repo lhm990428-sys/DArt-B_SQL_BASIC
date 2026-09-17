@@ -65,7 +65,7 @@ SQL_BASIC 정규 과제는 매주 정해진 분량의 `초보자를 위한 BigQu
 ## 01.
 
 ```
-개념 이름:
+개념 이름: 
 개념 설명:
 예시 쿼리:
 ```
@@ -78,13 +78,6 @@ SQL_BASIC 정규 과제는 매주 정해진 분량의 `초보자를 위한 BigQu
 예시 쿼리:
 ```
 
-## (선택) 03.
-
-```
-개념 이름:
-개념 설명:
-헷갈린 점:
-```
 
 ---
 
@@ -93,8 +86,14 @@ SQL_BASIC 정규 과제는 매주 정해진 분량의 `초보자를 위한 BigQu
 아래 중 하나 이상을 첨부해주세요.
 
 - 강의 수강 화면 캡처
+<img width="1915" height="1197" alt="image" src="https://github.com/user-attachments/assets/d7d11433-1927-41a0-be67-583352696444" />
+<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/c39b938d-bcb7-4467-8886-a3fc6e560161" />
+
 - 문제 풀이 정답 화면 캡처
 - SQL 실행 결과 화면 캡처
+<img width="1917" height="1191" alt="image" src="https://github.com/user-attachments/assets/48c12a04-31f4-47a8-827e-a1d76b9c2271" />
+<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/6e916e30-dcfe-46b9-9a59-deec64a9dcd5" />
+<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/bf11097e-7892-4aab-a356-c6bb644895b8" />
 
 ---
 

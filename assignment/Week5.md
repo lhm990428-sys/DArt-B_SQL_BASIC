@@ -137,12 +137,13 @@ FROM basic.trainer;
 풀이 과정:
 
 ```
-- 장기/단기 대여를 나눈 기준:
-- 사용한 날짜 계산 방식:
-- CASE WHEN으로 만든 컬럼:
+- 장기/단기 대여를 나눈 기준: 대여 기간이 30일 이상이면 '장기 대여', 30일 미만이면 '단기 대여'
+- 사용한 날짜 계산 방식: DATEDIFF(END_DATE, START_DATE) + 1로 실제 대여 일수를 계산
+- CASE WHEN으로 만든 컬럼: RENT_TYPE
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/8e5ec46e-c98a-4abc-90cb-5aae9aa68e6a" />
+
 
 ## 🧩 문제 2
 
@@ -151,12 +152,13 @@ FROM basic.trainer;
 풀이 과정:
 
 ```
-- 문제에서 요구한 연도:
-- 사용한 날짜 조건:
-- 집계한 대상:
+- 문제에서 요구한 연도: 2021년
+- 사용한 날짜 조건: YEAR(TIME) = 2021
+- 집계한 대상: 2021년에 잡힌 물고기 전체 행의 개수
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/58500ced-168a-430a-8a37-f85c2ce18389" />
+
 
 ## 🧩 문제 3
 
@@ -165,13 +167,14 @@ FROM basic.trainer;
 풀이 과정:
 
 ```
-- 날짜 조건:
-- CASE WHEN으로 바꾼 값:
-- ELSE에 해당하는 경우:
-- 정렬 기준:
+- 날짜 조건:CREATED_DATE = '2022-10-05'
+- CASE WHEN으로 바꾼 값:SALE → 판매중, RESERVED → 예약중, DONE → 거래완료
+- ELSE에 해당하는 경우:문제에서 주어진 STATUS 값이 SALE, RESERVED, DONE뿐이므로 별도의 ELSE를 사용하지 않음
+- 정렬 기준:BOARD_ID 기준 내림차순 정렬
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="1917" height="1195" alt="image" src="https://github.com/user-attachments/assets/3d71f05e-41e6-448f-9321-ef564074e089" />
+
 
 ## 🧩 문제 4
 
@@ -180,22 +183,23 @@ FROM basic.trainer;
 풀이 과정:
 
 ```
-- GROUP BY 기준:
-- 평균을 계산한 방식:
-- HAVING에 사용한 조건:
-- 처음 헷갈렸던 점:
+- GROUP BY 기준:CAR_ID
+- 평균을 계산한 방식: DATEDIFF(END_DATE, START_DATE) + 1로 각 대여 기간을 구한 뒤 AVG로 평균 계산
+- HAVING에 사용한 조건:평균 대여 기간이 7일 이상인 자동차만 조회
+- 처음 헷갈렸던 점:대여 기간 계산 시 시작일과 종료일을 모두 포함해야 해서 DATEDIFF 결과에 +1을 해야 한다는 점
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/df260f93-e11f-4213-bdf4-7d66748aec89" />
+
 
 ---
 
 # 4️⃣ 이번 주 회고
 
 ```
-1. 날짜 함수 중 가장 헷갈린 함수:
-2. CASE WHEN을 사용할 때 기억해야 할 문법:
-3. 날짜/시간 데이터나 조건문을 활용해보고 싶은 분석 상황:
+1. 날짜 함수 중 가장 헷갈린 함수: DATEDIFF로 날짜 차이를 계산할 때 시작일과 종료일을 모두 포함하려면 +1을 해야 한다는 점
+2. CASE WHEN을 사용할 때 기억해야 할 문법: CASE로 시작해서 WHEN 조건 THEN 결과를 작성하고, 필요하면 ELSE를 사용한 뒤 END로 마무리해야 함
+3. 날짜/시간 데이터나 조건문을 활용해보고 싶은 분석 상황: 월별 이용자 수나 주문 건수를 비교하고, 이용 기간이나 금액에 따라 고객을 여러 그룹으로 나누는 분석
 ```
 
 수고하셨습니다!

@@ -64,25 +64,53 @@ SQL_BASIC 정규 과제는 매주 정해진 분량의 `초보자를 위한 BigQu
 ## 01.
 
 ```
-개념 이름:
+개념 이름: 날짜 및 시간 데이터
 개념 설명:
+- DATE: 날짜만 저장하는 데이터 타입으로 연도, 월, 일을 표현한다.
+- DATETIME: 날짜와 시간을 함께 저장하는 데이터 타입이다.
+- TIMESTAMP: 특정 시점을 나타내는 데이터 타입으로, 시간대(Time Zone)를 고려할 수 있다.
+- EXTRACT: 날짜 및 시간 데이터에서 연도, 월, 일, 시간 등 원하는 부분만 추출할 때 사용한다.
+- DATETIME_TRUNC: 날짜·시간 값을 특정 단위(연도, 월, 일, 시간 등)를 기준으로 잘라서 표현한다.
+- FORMAT_DATETIME: DATETIME 값을 원하는 문자열 형식으로 변환할 때 사용한다.
+
 예시 쿼리:
+SELECT
+  CURRENT_TIMESTAMP() AS timestamp_col,
+  DATETIME(CURRENT_TIMESTAMP(), 'Asia/Seoul') AS datetime_col;
+
+SELECT 
+  EXTRACT(DATE FROM DATETIME "2024-01-02 14:00:00") AS date,
+  EXTRACT(YEAR FROM DATETIME "2024-01-02 14:00:00") AS year,
+  EXTRACT(MONTH FROM DATETIME "2024-01-02 14:00:00") AS month,
+  EXTRACT(DAY FROM DATETIME "2024-01-02 14:00:00") AS day,
+  EXTRACT(HOUR FROM DATETIME "2024-01-02 14:00:00") AS hour,
+  EXTRACT(MINUTE FROM DATETIME "2024-01-02 14:00:00") AS minute
 ```
 
 ## 02.
 
 ```
-개념 이름:
+개념 이름: 조건
 개념 설명:
+- CASE WHEN: 여러 조건에 따라 서로 다른 값을 반환할 때 사용하는 조건문이다. 조건이 여러 개이거나 복잡한 경우에 유용하다.
+- IF: 하나의 조건이 참인지 거짓인지에 따라 두 가지 결과 중 하나를 반환할 때 사용한다.
+- CASE WHEN은 여러 조건을 순서대로 판단할 수 있고, IF는 비교적 단순한 조건을 처리할 때 편리하다.
 예시 쿼리:
-```
+SELECT
+  *,
+  IF(speed >= 70, '빠름', '느림') AS Speed_Category
+FROM basic.pokemon;
 
-## (선택) 03.
-
-```
-개념 이름:
-개념 설명:
-헷갈린 점:
+SELECT
+  id,
+  name,
+  badge_count,
+  CASE
+    WHEN badge_count >= 9 THEN 'Advanced'
+    WHEN badge_count BETWEEN 6 AND 8 THEN 'Intermediate'
+    ELSE 'Beginner'
+  END AS trainer_level
+FROM basic.trainer;
 ```
 
 ---
@@ -94,6 +122,7 @@ SQL_BASIC 정규 과제는 매주 정해진 분량의 `초보자를 위한 BigQu
 - 강의 수강 화면 캡처
 - 문제 풀이 정답 화면 캡처
 - SQL 실행 결과 화면 캡처
+<img width="1917" height="983" alt="image" src="https://github.com/user-attachments/assets/36202b5b-db97-406e-9ccf-ae7dd1934631" />
 
 ---
 

@@ -68,26 +68,39 @@ JOIN은 여러 테이블을 연결해서 분석 질문에 답하기 위해 반�
 ## 01.
 
 ```
-개념 이름:
-개념 설명:
+개념 이름: JOIN
+개념 설명: 두 개 이상의 테이블을 공통된 컬럼(Key)을 기준으로 연결하여 데이터를 결합하는 기능이다.
+JOIN 종류에 따라 결합되는 데이터의 범위와 결과가 달라진다.
 예시 쿼리:
+SELECT
+    A.col1,
+    A.col2,
+    B.col11,
+    B.col12
+FROM table1 AS A
+LEFT JOIN table2 AS B
+ON A.key = B.key;
 ```
 
 ## 02.
 
 ```
-개념 이름:
-개념 설명:
+개념 이름: LEFT JOIN
+개념 설명: 왼쪽 테이블의 모든 데이터를 유지하면서 오른쪽 테이블에서 JOIN 조건에 일치하는 데이터를 결합한다.
+오른쪽 테이블에 일치하는 데이터가 없으면 해당 컬럼은 NULL로 표시된다.
 예시 쿼리:
+SELECT
+    tp.id,
+    tp.trainer_id,
+    tp.pokemon_id, 
+    t.age,
+    t.hometown
+FROM basic.trainer_pokemon AS tp
+LEFT JOIN basic.trainer AS t
+ON tp.trainer_id = t.id
+# ON : Join KEY를 기입
 ```
 
-## (선택) 03.
-
-```
-개념 이름:
-개념 설명:
-헷갈린 점:
-```
 
 ---
 
@@ -98,6 +111,7 @@ JOIN은 여러 테이블을 연결해서 분석 질문에 답하기 위해 반�
 - 강의 수강 화면 캡처
 - JOIN 문제 풀이 정답 화면 캡처
 - JOIN 전후 결과 row 수를 비교한 캡처 또는 메모
+<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/012e2988-b5b1-4932-b680-f7beb284411a" />
 
 ---
 
@@ -112,12 +126,14 @@ JOIN은 여러 테이블을 연결해서 분석 질문에 답하기 위해 반�
 풀이 과정:
 
 ```
-- 사용한 테이블:
-- JOIN key:
-- 날짜를 출력한 형식:
+- 사용한 테이블:BOOK, AUTHOR
+- JOIN key: BOOK.AUTHOR_ID = AUTHOR.AUTHOR_ID
+- 날짜를 출력한 형식: YYYY-MM-DD (DATE_FORMAT 함수 사용)
+
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="1917" height="1153" alt="image" src="https://github.com/user-attachments/assets/dbeea4b7-1cf5-4ffe-b950-c04b57b37407" />
+
 
 ## 🧩 문제 2
 
@@ -126,12 +142,13 @@ JOIN은 여러 테이블을 연결해서 분석 질문에 답하기 위해 반�
 풀이 과정:
 
 ```
-- 연결한 테이블:
-- JOIN key:
-- 집계한 값:
+- 연결한 테이블: PRODUCT, OFFLINE_SALE
+- JOIN key: PRODUCT.PRODUCT_ID = OFFLINE_SALE.PRODUCT_ID
+- 집계한 값: 상품코드별 매출액 합계 (PRICE * SALES_AMOUNT)
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="1917" height="1196" alt="image" src="https://github.com/user-attachments/assets/c689cf14-7389-4b45-a810-8552f2465ca8" />
+
 
 ## 🧩 문제 3
 
@@ -140,12 +157,14 @@ JOIN은 여러 테이블을 연결해서 분석 질문에 답하기 위해 반�
 풀이 과정:
 
 ```
-- 기준이 되는 왼쪽 테이블:
-- LEFT JOIN이 필요한 이유:
-- NULL이 발생하는 경우:
+- 기준이 되는 왼쪽 테이블: ANIMAL_OUTS
+- LEFT JOIN이 필요한 이유: 입양 기록은 있지만 보호소에 들어온 기록이 없는 동물을 찾기 위해 사용한다.
+- NULL이 발생하는 경우: ANIMAL_OUTS의 ANIMAL_ID와 일치하는 값이 ANIMAL_INS에 존재하지 않는 경우이다.
+
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="1917" height="1197" alt="image" src="https://github.com/user-attachments/assets/bff3ed25-891c-40a9-9385-a49b037943bb" />
+
 
 ## 🧩 문제 4
 
@@ -154,13 +173,14 @@ JOIN은 여러 테이블을 연결해서 분석 질문에 답하기 위해 반�
 풀이 과정:
 
 ```
-- 사용한 테이블:
-- JOIN key:
-- 비교한 날짜 컬럼:
-- 정렬 기준:
+- 사용한 테이블: ANIMAL_INS, ANIMAL_OUTS
+- JOIN key: ANIMAL_INS.ANIMAL_ID = ANIMAL_OUTS.ANIMAL_ID
+- 비교한 날짜 컬럼: ANIMAL_INS.DATETIME(보호 시작일), ANIMAL_OUTS.DATETIME(입양일)
+- 정렬 기준: 보호 시작일(ANIMAL_INS.DATETIME) 오름차순
 ```
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. -->
+<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/98f3e9e9-1189-48ea-a632-eed7305d5bd2" />
+
 
 ---
 
@@ -177,8 +197,13 @@ JOIN 개념이 헷갈린다면 아래 자료를 함께 참고해도 좋습니다
 
 ```
 1. INNER JOIN과 LEFT JOIN의 차이를 어떻게 이해했는지:
+INNER JOIN은 두 테이블에서 JOIN 조건에 일치하는 데이터만 반환하고, LEFT JOIN은 왼쪽 테이블의 모든 데이터를 유지한다.따라서 일치하는 데이터만 필요한지, 일치하지 않는 데이터까지 확인해야 하는지에 따라 선택해야 한다.
 2. JOIN 문제를 풀 때 가장 먼저 확인해야 할 것:
+연결할 테이블과 공통된 JOIN KEY가 무엇인지 먼저 확인해야 한다.
+이후 문제에서 요구하는 데이터의 범위를 파악하여 적절한 JOIN 방식을 선택해야 한다.
 3. JOIN 결과가 예상과 달랐던 경험이 있다면:
+LEFT JOIN 이후 WHERE절에서 NULL 조건을 활용하면 연결되지 않은 데이터만 추출할 수 있다는 점이 헷갈렸다.
+JOIN 자체는 데이터를 결합하는 역할이고, WHERE절은 결합된 결과를 필터링한다는 점을 이해했다.
 ```
 
 수고하셨습니다!
